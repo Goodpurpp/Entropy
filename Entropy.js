@@ -10,20 +10,19 @@ for (let i = 0; i < inputData.length; i++) {// Инициализация мас
 }
 //Результатом инициализации ключами в массива alph являются все различные массивы алфавита, со значениями 0
 //Считаем число повторов букв
+let counter = 0;
 for (let i = 0; i < inputData.length; i++) {
     Alph[inputData.charAt(i)] += 1;
+    counter += 1;
 }
 //todo: прочитать и понять,почему длинна массива Alph равна нулю.Длина определяется последним числовым индексом
 /*for (let i=0;i<Alph.length;i++){
     Alph[i]/=inputData.length;
 }*/ //Будет работать но неправильно <---
-let counter=0;
-console.log(Alph)
 for (i in Alph) {
-    Alph[i]/=inputData.length;
-    counter++;
+    Alph[i] /= inputData.length;
 }
-for (i in Alph){
-    Entropy-=Alph[i]*(Math.log(Alph[i])/Math.log(counter));
+for (i in Alph) {
+    Entropy -= Alph[i] * (Math.log(Alph[i]) / Math.log(counter));
 }
 console.log(Entropy)
